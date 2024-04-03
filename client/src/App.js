@@ -1,20 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <a href="" className="App-logo">Logo</a>
 
+        <nav>
+          <a href="">GET</a>
+          <a href="">POST</a>
+          <a href="">PUT</a>
+          <a href="">DELETE</a>
+        </nav>
+      </header>
+
+      <div className="App-body">
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://react.dev/reference/react"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Text here
+          React doc
         </a>
-      </header>
+
+        <a
+          className="App-link"
+          href="https://nodejs.org/docs/latest/api/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Node.js doc
+        </a>
+      </div>
     </div>
   );
 }
