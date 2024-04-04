@@ -6,14 +6,31 @@ On your empty workspace, create the `client` directory (it will hold your React 
 ```
 npx create-react-app .
 ``` 
-And to start your app:
+And to run your app:
 ```
 npm start
 ```
 
 Create a `server` directory (which will host your Node.js Express server), create a `index.js` file, and run the command:
 ```
-npm install express
+npm install express nodemon
+```
+
+Write on your `index.js` file:
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/ping', (req, res) => {
+    res.json('ping!')
+});
+
+app.listen(4000);
+```
+
+And to run your server:
+```javascript
+nodemon index.js
 ```
 
 ## React Pages
