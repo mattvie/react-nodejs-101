@@ -11,6 +11,11 @@ And to start your app:
 npm start
 ```
 
+Create a `server` directory (which will host your Node.js Express server), create a `index.js` file, and run the command:
+```
+npm install express
+```
+
 ## React Pages
 
 React's `react-router-dom` package is very useful when creating new pages for your web application.
