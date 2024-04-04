@@ -98,40 +98,53 @@ function App() {
 export default App;
 ```
 
-Once your web app compile again, you can access this new page going to its URL: `localhost:3000/newpage`. It won't have anything, since there's only an empty div on it. You haven't added any components.
+Once your web app compile again, you can access this new page going to its URL: `localhost:3000/newpage`. It won't have anything, since there's only an empty div on it. You haven't added any components.  
+There's also no way to get to this new page while clicking on any links. You need to use the attribute `href` to do that.
 
 #### Creating Pages Component
 
 On the `Components` directory, create a JavaScript file. On this file, you will export the HTML code of your new component. Here is an example:
 
 ```javascript
-export default function NewComponent() {
+export default function Header() {
     return (
-        <div className="Component-body">
-            <a
-                className="Component-link"
-                href="https://github.com/mattvie/react-nodejs-101"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Link
-            </a>
-        </div>
+        <header className="App-header">
+            <a href="/" className="App-logo">Logo</a>
+
+            <nav>
+                <a href="/newpage">New Page</a>
+            </nav>
+        </header>
     );
 }
 ```
-
-Now import your component and add an HTML tag named after your component. Your component, function, and tag name must match. Since on this case the exported component function is called `NewComponent()`, its file name must be called `NewComponent.js`, and the HTML tag is `<NewComponent />`. Your page will look something like this:
+When this component is running on your web app, as you click on the `Logo` link, you will be redirected to the index page specified on your routes since the `href` attribute is set to `/`. The same way, when you click on the `New Page` link, you will be redirected to the new page specified on your routes since the `href` attribute is set to `/newpage`.  
+Now import your component and add an HTML tag named after your component. Your component, function, and tag name must match. Since on this case the exported component function is called `Header()`, its file name must be called `Header.js`, and the HTML tag is `<Header />`. Your `App.js` will look something like this:
 
 ```javascript
 import './App.css';
-import NewComponent from './Components/NewComponent';
+import Header from './Components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <MainPageBody />
-    </div>
+    <Routes>
+
+        <Route index element={
+            <div className="Index">
+                <Header />
+
+            </div>
+        } />
+
+        <Route path={'/newpage'} element={
+            <div className="NewPage">
+                <Header />
+                
+            </div>
+        } />
+
+    </Routes>
+
   );
 }
 
