@@ -1,4 +1,5 @@
 import './App.css';
+import MainPageBody from './Components/MainPageBody';
 
 function App() {
   return (
@@ -14,25 +15,8 @@ function App() {
         </nav>
       </header>
 
-      <div className="App-body">
-        <a
-          className="App-link"
-          href="https://react.dev/reference/react"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React doc
-        </a>
+      <MainPageBody />
 
-        <a
-          className="App-link"
-          href="https://nodejs.org/docs/latest/api/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Node.js doc
-        </a>
-      </div>
     </div>
   );
 }
