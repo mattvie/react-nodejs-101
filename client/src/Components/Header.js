@@ -1,13 +1,13 @@
 export default function Header() {
     return (
         <header className="App-header">
-            <a href="" className="App-logo">Logo</a>
+            <a href="/" className="App-logo">Logo</a>
 
             <nav>
-                <a href="">GET</a>
-                <a href="">POST</a>
-                <a href="">PUT</a>
-                <a href="">DELETE</a>
+                <a href="/get">GET</a>
+                <a href="/post">POST</a>
+                <a href="/put">PUT</a>
+                <a href="/delete">DELETE</a>
             </nav>
         </header>
     );

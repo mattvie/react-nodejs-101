@@ -11,11 +11,13 @@ And to start your app:
 npm start
 ```
 
-## Routes
+## React Pages
+
+React's `react-router-dom` package is very useful when creating new pages for your web application.
 
 ### Configurations
 
-Import `BrowserRouter` to your index.js, it should look like this:
+Import `BrowserRouter` on your index.js, and add the `App` inside of the `BrowserRouter` tag:
 
 ```javascript
 import React from 'react';
@@ -37,13 +39,13 @@ root.render(
 reportWebVitals();
 ```
 
-Make sure you have the `react-router-dom` dependency installed:
+Make sure you have the `react-router-dom` package installed:
 
 ```
 npm install react-router-dom -S
 ```
 
-Add the app routes on `App.js`:
+Add the index page on `App.js`:
 
 ```javascript
 import './App.css';
@@ -54,7 +56,7 @@ function App() {
   return (
     <Routes>
       <Route index element={
-        <div className="App">
+        <div className="Index">
         </div>
       } />
     </Routes>
@@ -66,6 +68,37 @@ export default App;
 ```
 
 ### Creating Pages
+
+To add a new page on your web app, you select a path do this page, and insert a new route on `App.js`:
+
+```javascript
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+
+function App() {
+  return (
+    <Routes>
+
+        <Route index element={
+            <div className="Index">
+            </div>
+        } />
+
+        <Route path={'/newpage'} element={
+            <div className="NewPage">
+            </div>
+        } />
+
+    </Routes>
+
+  );
+}
+
+export default App;
+```
+
+Once your web app compile again, you can access this new page going to its URL: `localhost:3000/newpage`. It won't have anything, since there's only an empty div on it. You haven't added any components.
 
 #### Creating Pages Component
 
