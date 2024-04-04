@@ -1,14 +1,22 @@
 import './App.css';
+
+import { Routes, Route } from 'react-router-dom';
+
 import MainPageBody from './Components/MainPageBody';
 import Header from './Components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+    <Routes>
+      <Route index element={
+        <div className="App">
+          <Header />
 
-      <MainPageBody />
-    </div>
+          <MainPageBody />
+        </div>
+      } />
+    </Routes>
+
   );
 }
 

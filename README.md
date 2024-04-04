@@ -11,7 +11,59 @@ And to start your app:
 npm start
 ```
 
-## Adding Route
+## Routes
+
+### Configurations
+
+Import `BrowserRouter` to your index.js, it should look like this:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+
+import reportWebVitals from './reportWebVitals';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+reportWebVitals();
+```
+
+Make sure you have the `react-router-dom` dependency installed:
+
+```
+npm install react-router-dom -S
+```
+
+Add the app routes on `App.js`:
+
+```javascript
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+
+function App() {
+  return (
+    <Routes>
+      <Route index element={
+        <div className="App">
+        </div>
+      } />
+    </Routes>
+
+  );
+}
+
+export default App;
+```
 
 ### Creating Pages
 
