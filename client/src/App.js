@@ -2,56 +2,25 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
 
-import Header from './Components/Header';
 import MainPageBody from './Components/MainPageBody';
 import GetPageBody from './Components/GetPageBody'
 import PostPageBody from './Components/PostPageBody'
 import PutPageBody from './Components/PutPageBody'
 import DeletePageBody from './Components/DeletePageBody'
+import Layout from './Components/Layout';
 
 function App() {
   return (
     <Routes>
-      <Route index element={
-        <div className="IndexPage">
-          <Header />
+      <Route path="/" element={<Layout />}>
 
-          <MainPageBody />
-        </div>
-      } />
+        <Route index element={<MainPageBody />} />
+        <Route path={'/get'} element={<GetPageBody />} />
+        <Route path={'/post'} element={<PostPageBody />} />
+        <Route path={'/put'} element={<PutPageBody />} />
+        <Route path={'/delete'} element={<DeletePageBody />} />
 
-      <Route path={'/get'} element={
-        <div>
-          <Header />
-
-          <GetPageBody />
-        </div>
-      } />
-
-      <Route path={'/post'} element={
-        <div>
-          <Header />
-
-          <PostPageBody />
-        </div>
-      } />
-
-      <Route path={'/put'} element={
-        <div>
-          <Header />
-
-          <PutPageBody />
-        </div>
-      } />
-
-      <Route path={'/delete'} element={
-        <div>
-          <Header />
-
-          <DeletePageBody />
-        </div>
-      } />
-
+      </Route>
 
     </Routes>
   );
