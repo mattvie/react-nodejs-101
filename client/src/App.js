@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route index element={
-        <div className="App">
+        <div className="Index">
           <Header />
 
           <MainPageBody />
