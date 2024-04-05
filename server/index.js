@@ -39,4 +39,9 @@ app.post('/post', async (req, res) => {
 
 });
 
+app.get('/get', async (req, res) => {
+    const users = await User.find()
+    res.json(users);
+});
+
 app.listen(4000);
