@@ -180,9 +180,11 @@ export default App;
 
 Routes on Node.js are different from routes on React. The routes on React are the routes your web app use (on the client-side) within a web page. It's all about UI and rendering components. Node.js routes, particularly when using Express, handle server-sided routing, and their responses to different HTTP requests. The four main HTTP requests methods are `GET`, `POST`, `PUT` and `DELETE`.  
   
-To test your web API, you will need some sort of tool to try and send your HTTP requests, such as the online tool Postman, or the VS Code plugin Postcode.
+To test your web API, you will need some sort of tool to try and send your HTTP requests, such as the online tool Postman, or the VS Code plugin Postcode like I did.
 
 ### GET request
+
+To be added.
 
 ### POST request
 
@@ -203,6 +205,101 @@ app.post('/mypost', async (req, res) => {
 ![alt text](images/image.png)
 ### PUT request
 
+To be added.
+
 ### DELETE request
 
+To be added.
+
 ## Integration
+
+Now let's call a HTTP request from our React web app.
+
+### React Hook: `useState`
+
+Hook is a special function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add React state to function components.
+
+This is how to use it:
+
+```javascript
+import { useState } from 'react';
+
+export default function Forms() {
+
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    return (
+        <form>
+            <input type="text" placeholder="username"
+                value={username}
+                onChange={ev => setUsername(ev.target.value)} />
+
+            <input type="email" placeholder="email"
+                value={email}
+                onChange={ev => setEmail(ev.target.value)} />
+
+            <input type="password" placeholder="password"
+                value={password}
+                onChange={ev => setPassword(ev.target.value)} />
+
+            <button>Submit</button>
+        </form>
+    );
+}
+```
+
+### Sending a request
+
+On the previous component, we will create a function to handle the submission of our data on the forms:
+
+```javascript
+import { useState } from 'react';
+
+export default function Forms() {
+
+  async function my_post_function(ev) {
+        ev.preventDefault();
+
+        const res = await fetch('http://localhost:4000/mypost', {
+            method: 'POST',
+            body: JSON.stringify({ username, email, password }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (res.status === 200) {
+            alert('Request was successful.')
+        } else {
+            alert('Request failed.')
+        }
+
+    };
+
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    return (
+        <form onSubmit={my_post_function}>
+            <input type="text" placeholder="username"
+                value={username}
+                onChange={ev => setUsername(ev.target.value)} />
+
+            <input type="email" placeholder="email"
+                value={email}
+                onChange={ev => setEmail(ev.target.value)} />
+
+            <input type="password" placeholder="password"
+                value={password}
+                onChange={ev => setPassword(ev.target.value)} />
+
+            <button>Submit</button>
+        </form>
+    );
+}
+```
+
+## MongoDB
+
+To be added.
