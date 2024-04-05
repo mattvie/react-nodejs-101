@@ -27,6 +27,8 @@ app.get('/ping', (req, res) => {
 
 app.listen(4000);
 ```
+  
+The `req` (request) object contains the body and every other information send through the HTTP request, and the `res` (response) object is used to handle the responses that may be sent back to your client.
 
 And to run your server:
 ```javascript
@@ -125,7 +127,7 @@ There's also no way to get to this new page while clicking on any links. You nee
 
 #### Creating Pages Component
 
-On the `client/src` directory, create a new `Components` directory, and inside of it make a JavaScript file named `Header.js`. On this file, you will export the HTML code of your new component. Here is an example:
+On the `client/src` directory, create a new `Components` custom directory, and inside of it make a JavaScript file named `Header.js`. On this file, you will export the HTML code of your new component. Here is an example:
 
 ```javascript
 export default function Header() {
@@ -173,3 +175,34 @@ function App() {
 
 export default App;
 ```
+
+## Node.js Routes
+
+Routes on Node.js are different from routes on React. The routes on React are the routes your web app use (on the client-side) within a web page. It's all about UI and rendering components. Node.js routes, particularly when using Express, handle server-sided routing, and their responses to different HTTP requests. The four main HTTP requests methods are `GET`, `POST`, `PUT` and `DELETE`.  
+  
+To test your web API, you will need some sort of tool to try and send your HTTP requests, such as the online tool Postman, or the VS Code plugin Postcode.
+
+### GET request
+
+### POST request
+
+POST requests are used to submit data, like when you send in a forms or upload a file. The data submitted with a POST request is typically included in the body of the request, rather than in the URL like with a GET request.  
+  
+The following code will try to receive the POST request, if it's successful its response will be the same request body, otherwise it will throw a status 400 error message:
+```javascript
+app.post('/mypost', async (req, res) => {
+
+    try {
+        res.json(req.body);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+
+});
+```
+![alt text](images/image.png)
+### PUT request
+
+### DELETE request
+
+## Integration
