@@ -125,7 +125,7 @@ There's also no way to get to this new page while clicking on any links. You nee
 
 #### Creating Pages Component
 
-On the `Components` directory, create a JavaScript file. On this file, you will export the HTML code of your new component. Here is an example:
+On the `client/src` directory, create a new `Components` directory, and inside of it make a JavaScript file named `Header.js`. On this file, you will export the HTML code of your new component. Here is an example:
 
 ```javascript
 export default function Header() {
@@ -140,8 +140,9 @@ export default function Header() {
     );
 }
 ```
-When this component is running on your web app, as you click on the `Logo` link, you will be redirected to the index page specified on your routes since the `href` attribute is set to `/`. The same way, when you click on the `New Page` link, you will be redirected to the new page specified on your routes since the `href` attribute is set to `/newpage`.  
-Now import your component and add an HTML tag named after your component. Your component, function, and tag name must match. Since on this case the exported component function is called `Header()`, its file name must be called `Header.js`, and the HTML tag is `<Header />`. Your `App.js` will look something like this:
+When this component is running on your web app, as you click on the `Logo` link, you will be redirected to the index page specified on your routes since the `href` attribute is set to `/`. The same way, when you click on the `New Page` link, you will be redirected to the new page specified on your routes since the `href` attribute is set to `/newpage`.    
+
+After importing your component you can now use it by adding a tag on your Routes. Your component and tag name must match. Since on this case the exported component function is called `Header()`, its file name must be called `Header.js`, and the tag is `<Header />`. Your `App.js` will look something like this:
 
 ```javascript
 import './App.css';
