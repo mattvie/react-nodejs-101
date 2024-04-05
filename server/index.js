@@ -19,15 +19,20 @@ mongoose.connect('mongodb+srv://mattwvie:ygll3ZLpUKTwh6wq@cluster0.3tnpzso.mongo
 app.post('/post', async (req, res) => {
     const { username, email, number, password, color } = req.body;
 
-    const userDoc = await User.create({
-        username,
-        email,
-        number,
-        password,
-        color
-    });
+    try {
+        const userDoc = await User.create({
+            username,
+            email,
+            number,
+            password,
+            color
+        });
 
-    res.json(userDoc);
+        res.json(userDoc);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+
 });
 
 app.listen(4000);

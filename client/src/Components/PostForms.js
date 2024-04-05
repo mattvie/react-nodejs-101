@@ -12,12 +12,18 @@ export default function PostForms() {
     async function send_post(ev) {
         ev.preventDefault();
 
-        await fetch('http://localhost:4000/post', {
+        const res = await fetch('http://localhost:4000/post', {
             method: 'POST',
             body: JSON.stringify({ username, email, number, password, color }),
             //Since the body is a JSON, we need to set some headers
             headers: { 'Content-Type': 'application/json' }
         });
+
+        if (res.status === 200) {
+            alert('Registration was successful.')
+        } else {
+            alert('Registration failed.')
+        }
 
     };
 
