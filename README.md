@@ -28,7 +28,7 @@ app.get('/ping', (req, res) => {
 app.listen(4000);
 ```
   
-The `req` (request) object contains the body and every other information send through the HTTP request, and the `res` (response) object is used to handle the responses that may be sent back to your client.
+The `req` (request) object contains the body and every other information sent through the HTTP request, and the `res` (response) object is used to handle the responses that may be sent back to your client.
 
 And to run your server:
 ```javascript

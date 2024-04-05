@@ -2,7 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+const bcrypt = require('bcryptjs');
 const fs = require('fs');
+
+const salt = bcrypt.genSaltSync(10);
 
 const app = express();
 
@@ -24,12 +27,13 @@ app.post('/post', async (req, res) => {
             username,
             email,
             number,
-            password,
+            password: bcrypt.hashSync(password, salt),
             color
         });
 
         res.json(userDoc);
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 
