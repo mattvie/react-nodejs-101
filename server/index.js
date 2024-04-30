@@ -10,7 +10,7 @@ app.use(cors());
 //enabling json parsing middleware
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://mattwvie:ygll3ZLpUKTwh6wq@cluster0.3tnpzso.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('')
 
 /* app.get('/ping', (req, res) => {
     res.json('ping!')
