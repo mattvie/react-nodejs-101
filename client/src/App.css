@@ -92,3 +92,26 @@ button {
     transform: rotate(360deg);
   }
 } */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Align boxes horizontally */
+  align-items: center;
+  /* Align boxes vertically */
+  max-width: fit-content;
+  /* Adjust to your preferred size */
+  max-height: fit-content;
+  /* Adjust to your preferred size */
+  border: 1px solid #ccc;
+  /* Add border for visual separation */
+  padding: 10px;
+  /* Add padding inside the box */
+  margin: 30px;
+  /* Add margin around the box */
+}
+
+.content p {
+  margin: 20px;
+}
