@@ -48,4 +48,23 @@ app.get('/get', async (req, res) => {
     res.json(users);
 });
 
+app.put('/put', async (req, res) => {
+    const { username, email, password } = req.body;
+
+    try {
+        const userDoc = await User.findOne({ username });
+        const check = bcrypt.compareSync(password, userDoc.password);
+
+        if (check) {
+            userDoc.email = email;
+            await userDoc.save()
+        };
+
+        res.json(userDoc);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
+
 app.listen(4000);
