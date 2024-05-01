@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
+const dotenv = require("dotenv");
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -13,7 +13,11 @@ app.use(cors());
 //enabling json parsing middleware
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://mattwvie:ygll3ZLpUKTwh6wq@cluster0.3tnpzso.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+// MongoDB's connection string (with the user password) is read on the .env file
+// For security reasons, do NOT track .env on Git. Setup your connection string only on your local machine/secure environment
+// Check example.env to see how to setup your .env on your local machine.
+dotenv.config({ path: __dirname + '/.env' });
+mongoose.connect(process.env.DB_URL);
 
 /* app.get('/ping', (req, res) => {
     res.json('ping!')
