@@ -57,7 +57,7 @@ app.put('/put', async (req, res) => {
 
         if (check) {
             userDoc.email = email;
-            await userDoc.save()
+            await userDoc.save();
         };
 
         res.json(userDoc);
@@ -65,6 +65,27 @@ app.put('/put', async (req, res) => {
         console.log(err);
         res.status(400).json(err);
     }
+});
+
+app.delete('/delete', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const userDoc = await User.findOne({ username });
+        const check = bcrypt.compareSync(password, userDoc.password);
+
+        if (check) {
+            await User.deleteOne({ username });
+            res.json('user deleted');
+        } else {
+            res.json(userDoc);
+        }
+
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+
 });
 
 app.listen(4000);
