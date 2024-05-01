@@ -125,7 +125,7 @@ export default App;
 Once your web app compile again, you can access this new page going to its URL: `localhost:3000/newpage`. It won't have anything, since there's only an empty div on it. You haven't added any components.  
 There's also no way to get to this new page while clicking on any links. You need to use the attribute `href` to do that.
 
-#### Creating Pages Component
+#### Creating Pages and Components
 
 On the `client/src` directory, create a new `Components` custom directory, and inside of it make a JavaScript file named `Header.js`. On this file, you will export the HTML code of your new component. Here is an example:
 
@@ -175,6 +175,8 @@ function App() {
 
 export default App;
 ```
+  
+For bigger projects, you can divide pages and components as well. I personally like to create a `Pages` folder for all React routes, and inside of it create the `Components` folder for all separate items such as header/footer/etc.
 
 ## Node.js Routes
 

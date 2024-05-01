@@ -1,4 +1,4 @@
-import GetPageContent from './GetPageContent';
+import GetPageContent from './Components/GetPageContent';
 
 export default function () {
     return (

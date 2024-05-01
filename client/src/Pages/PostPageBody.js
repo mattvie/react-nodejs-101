@@ -1,4 +1,4 @@
-import PostForms from './PostForms';
+import PostForms from './Components/PostForms';
 
 export default function () {
     return (

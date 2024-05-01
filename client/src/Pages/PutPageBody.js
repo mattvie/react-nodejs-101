@@ -1,4 +1,4 @@
-import PutForms from './PutForms';
+import PutForms from './Components/PutForms';
 
 export default function () {
     return (

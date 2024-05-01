@@ -1,4 +1,4 @@
-import DeleteForms from './DeleteForms';
+import DeleteForms from './Components/DeleteForms';
 
 export default function () {
     return (
