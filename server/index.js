@@ -78,7 +78,8 @@ app.delete('/delete', async (req, res) => {
             await User.deleteOne({ username });
             res.json('user deleted');
         } else {
-            res.json(userDoc);
+            console.log('wrong password');
+            res.status(400).json(userDoc);
         }
 
     } catch (err) {
